@@ -1,0 +1,316 @@
+*{box-sizing:border-box}
+body { 
+  margin:0; 
+  font-family: Arial, sans-serif; 
+  display:flex; 
+  flex-direction:column; 
+  height:100vh;
+  /* FIXED: removed overflow:hidden so page can scroll on mobile */
+}
+
+/* HEADER */
+.header {
+  height:60px;
+  background:#0b3c5d;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+}
+
+.logo-left img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:500;
+  padding:5px 10px;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+.nav a.active, .nav a:hover{
+  background:#0e5581;
+}
+
+/* LAYOUT */
+.app { 
+  display:flex; 
+  flex:1; 
+  overflow:hidden;
+}
+
+.sidebar-left { 
+  width:250px; 
+  background:#07293f; 
+  color:white; 
+  padding:15px; 
+  display:flex; 
+  flex-direction:column;
+}
+
+/* FIXED: search box was unstyled */
+#searchBox {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.legend { 
+  flex:1; 
+  overflow-y:auto; 
+  margin-top:10px; 
+}
+
+.sidebar-right { 
+  width:300px; 
+  background:#e2e2e2; 
+  padding:15px; 
+  font-family: montserrat, sans-serif;
+  font-weight: 400;
+  color: #0b3c5d;
+}
+
+h3{
+  font-family: montserrat, sans-serif;
+  font-weight: 600;
+}
+
+ol{
+  line-height: 20px;
+  font-family: montserrat, sans-serif;
+  font-weight: 200;
+}
+
+.main { 
+  flex:1; 
+  position:relative; 
+  overflow:hidden; 
+}
+
+.map-wrapper {
+  width:100%;
+  height:100%; 
+  transform-origin: 0 0; 
+  transition: transform 0.4s ease; 
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  touch-action: none; /* FIXED: stops browser pinch/scroll from fighting our custom pan & zoom */
+}
+
+.zoom-controls { 
+  position:absolute; 
+  bottom:20px; 
+  right:20px; 
+  display:flex; 
+  flex-direction:column;     
+}
+
+.zoom-controls button { 
+  margin:5px; 
+  padding:10px; 
+  font-size:18px; 
+  background: #0b3c5d;
+  color: white;
+  border-radius: 10px;
+}
+
+.active-location polygon { 
+  stroke:yellow; 
+  stroke-width:3; 
+  filter:drop-shadow(0 0 6px yellow);
+}
+
+#tooltip { 
+  position:absolute; 
+  background:black; 
+  color:white; 
+  padding:5px 10px; 
+  font-size:14px; 
+  border-radius:4px; 
+  pointer-events:none; 
+  display:none;
+}
+
+/* FOOTER */
+.footer { 
+  height:40px; 
+  background:#0b3c5d; 
+  color:#fff; 
+  display:flex;
+  align-items:center; 
+  justify-content:center; 
+  font-size:12px; 
+  font-family: montserrat, sans-serif;
+  font-weight: 200;
+}
+
+/* MODAL */
+.modal {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  animation: fadeIn 1s ease; 
+}
+
+.modal-content {
+  background:#fff;
+  padding:20px;
+  width:400px;
+  border-radius:10px;
+  animation: slideUp 0.4s ease;
+}
+
+.close-btn {
+  float:right;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+@keyframes fadeIn {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+@keyframes slideUp {
+  from {transform:translateY(50px); opacity:0}
+  to {transform:translateY(0); opacity:1}
+}
+
+#panBtn {
+  position: absolute;
+  bottom: 200px;
+  right: 20px;
+  padding: 10px;
+  background: #0b3c5d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#panBtn.active {
+  background: #176599;
+}
+
+/* Cursor styles */
+.pan-active {
+  cursor: grab;
+}
+
+.pan-active:active {
+  cursor: grabbing;
+}
+
+#panorama {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+button {
+  padding: 10px 14px;
+  font-size: 16px;
+}
+
+
+/* ==============================
+   MOBILE RESPONSIVE FIXES
+   ============================== */
+@media (max-width: 768px) {
+
+  /* FIXED: allow the page to scroll vertically on mobile */
+  body {
+    height: auto;
+    overflow-y: auto;
+  }
+
+  /* FIXED: header wraps on small screens so nav links don't overflow */
+  .header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .nav a {
+    margin-left: 0;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  /* FIXED: stack layout vertically and allow scrolling */
+  .app {
+    flex-direction: column;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  /* FIXED: sidebar-left full width, height grows naturally so legend is visible */
+  .sidebar-left {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* FIXED: legend was collapsing to 0 height because flex:1 needs a fixed parent.
+     Removed flex:1 and overflow clip so all items show */
+  .legend {
+    overflow-y: visible;
+    flex: none;
+    height: auto;
+  }
+
+  /* FIXED: map gets a proper dedicated height on mobile */
+  .main {
+    height: 60vh;
+    min-height: 300px;
+    width: 100%;
+  }
+
+  /* FIXED: right sidebar goes full width below the map */
+  .sidebar-right {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    overflow-y: auto;
+  }
+
+  /* FIXED: panorama viewer smaller on mobile to save space */
+  #panorama {
+    height: 200px;
+  }
+
+  /* FIXED: modal too wide for mobile */
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+}
