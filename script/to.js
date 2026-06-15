@@ -122,55 +122,55 @@ window.addEventListener("mouseup", () => {
 const locations = {
   "Main Gate": {
     name: "main-gate",
-    image: "images/main-gate.jpg",
+    image: "maingate.jpg",
     description: "Main entrance to the school"
   },
   
   "F.O Kwame Block(Main Administration)": {
     name: "F.O Kwame Block(Main Administration)",
-    image: "images/fo.jpeg",
+    image: "fo.jpeg",
     description: "This is the main Administration of the University. It is about 1 minute walk from the main Gate."
   },
    
   "G.M Afeti Auditorium": {
     name: "G.M Afeti Auditorium",
-    image: "images/auditorium.jpeg",
+    image: "auditorium.jpeg",
     description: "It is located at the east of the main Gate or the main entrance to the School. It ia about 30s walk from the Main Gate"
   },
 
   "Asogli Block(V Block)": {
     name: "Asogli Block(V Block)",
-    image: "images/v-block.jpeg",
+    image: "vblock.jpeg",
     description: "This is where most of the lecture halls are located, it is made up of about 34 lecture halls and this is also where the main security unit is. It is about 1:30s walk from the main Gate."
   },
 
   "GCB & ZENITH BANKS": {
     name: "GCB & ZENITH BANKS",
-    image: "images/auditorium.jpg",
+    image: "auditorium.jpeg",
     description: "These are the two banks at Ho Technical University. From the Main Gate to the Banks is about 2 minutes walk. "
   },
 
   "Nunya Library": {
     name: "Nunya Library",
-    image: "images/gg.png",
+    image: "nunya.jpg",
     description: "This is the School's Library, it is located between AR Block and the Banks. It is about 2:30s walk from the Main Gate."
   },
 
   "A.R Block": {
     name: "A.R Block",
-    image: "images/kk.jpg",
+    image: "ar.jpg",
     description: "This Block is about 3minutes walk from the Main Gate, this is about 0.30 km as estimated based on average walking speed of 5 km/h."
   },
 
    "Octagon": {
     name: "Octagon",
-    image: "images/octagon.jpeg",
+    image: "octagon.jpeg",
     description: "This the the Department of Computer Science, it is located about 3:58s which is approximately 0.33 km walk from the Main Gate as estimated based on average walking speed of 5 km/h."
   },
 
   "Auto Bay": {
     name: "Auto Bay",
-    image: "images/fo.jpg",
+    image: "autobay.jpg",
     description: "This is the Automobile Engineering Department, it is about 4:40s which is 0.39 km walk from the Main Gate as estimated based on average walking speed of 5 km/h."
   },
 
