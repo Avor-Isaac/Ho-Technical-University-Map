@@ -176,7 +176,7 @@ const locations = {
 
   "Amatron Laboratory": {
     name: "Amatron Laboratory",
-    image: "images/fo.jpg",
+    image: "amature-lab.jpg",
     description: "This Lab is about 5:00s walk, thus about 0.45 km from the Main Gate as estimated based on average walking speed of 5 km/h."
   },
 
