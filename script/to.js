@@ -314,7 +314,7 @@ const locations = {
 
   "Sports Field": {
     name: "Sports Field",
-    image: "images/field.jpeg",
+    image: "field.jpeg",
     description: "It is about 11:47s walk from the Main Gate, which is 0.96 km as estimated based on average walking speed of 5 km/h."
   },           
 
@@ -328,19 +328,19 @@ const locations = {
 
    "V.C's Residence": {
     name: "V.C's Residence",
-    image: "images/fo.jpg",
+    image: "vc.jpg",
     description: "It is about 13:52s walk from the Main Gate, which is 1.12 km as estimated based on average walking speed of 5 km/h."
   },               
 
   "HTU Bsic School": {
     name: "HTU Bsic School",
-    image: "images/fo.jpg",
+    image: "htubasic.jpg",
     description: "It is about 13:56s walk from the Main Gate, which is 1.14 km as estimated based on average walking speed of 5 km/h."
   },
 
   "Faculty of Business": {
     name: "Faculty of Business",
-    image: "fad.jpg",
+    image: "busineessch.jpg",
     description: "It is about 18:27s walk from the Main Gate, which is 1.54 km as estimated based on average walking speed of 5 km/h."
   },  
 
