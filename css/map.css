@@ -273,6 +273,7 @@ button {
     flex-direction: column;
     overflow-y: auto;
     height: auto;
+    min-height: 0
   }
 
   /* FIXED: sidebar-left full width, height grows naturally so legend is visible */
