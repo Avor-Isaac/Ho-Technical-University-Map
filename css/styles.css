@@ -132,7 +132,7 @@ body {
       rgba(11, 60, 93, 0.85),
       rgba(11, 60, 93, 0.85)
     ),
-    url(".aa.jpg");
+    url("/aa.jpg");
   background-size: cover;
   background-position: center;
   color: white;
