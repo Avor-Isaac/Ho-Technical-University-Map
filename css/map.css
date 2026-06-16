@@ -5,7 +5,7 @@ body {
   display:flex; 
   flex-direction:column; 
   height:100vh;
-  /* FIXED: removed overflow:hidden so page can scroll on mobile */
+  overflow: hidden; /* desktop: no page scroll, layout fills viewport */
 }
 
 /* HEADER */
@@ -43,12 +43,13 @@ body {
 /* LAYOUT */
 .app { 
   display:flex; 
-  flex:1; 
+  flex:1;          /* fills all space between header and footer */
   overflow:hidden;
+  min-height: 0;   /* FIXED: allows flex children to shrink correctly so footer stays visible */
 }
 
 .sidebar-left { 
-  width:300px; 
+  width:250px; 
   background:#07293f; 
   color:white; 
   padding:15px; 
@@ -90,9 +91,9 @@ h3{
 ol{
   line-height: 28px;
   font-family: montserrat, sans-serif;
-  font-weight: 200;
-  font-color: #ffffff;
-  padding-left: 22px;
+  font-weight: 300;
+  color: #ffffff;       /* FIXED: explicit white so numbers show on dark sidebar */
+  padding-left: 22px;   /* FIXED: gives room for numbers — they were being clipped */
   margin: 0;
 }
 
@@ -273,7 +274,6 @@ button {
     flex-direction: column;
     overflow-y: auto;
     height: auto;
-    min-height: 0
   }
 
   /* FIXED: sidebar-left full width, height grows naturally so legend is visible */
