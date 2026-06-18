@@ -198,8 +198,8 @@ const locations = {
     description: "It is about 5:00s walk from the Main Gate, which is 0.43 km as estimated based on average walking speed of 5 km/h."
   },
 
-  "Afese Block(Old Administration)": {
-    name: "Afese Block(Old Administration)",
+  "Afese Block (Old Administration)": {
+    name: "Afese Block (Old Administration)",
     image: "Afese.jpg",
     description: "This block contains the office of the Dean of students, Indusstrial Art Department, Civil Engineering Department, etc. It is about 6:19s walk from the Main Gate, which is 0.54 km as estimated based on average walking speed of 5 km/h."
   },
