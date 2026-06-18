@@ -11,6 +11,7 @@ body {
 /* HEADER */
 .header {
   height:60px;
+  flex-shrink: 0;   /* FIXED: prevents header from shrinking and stealing height from .app */
   background:#0b3c5d;
   color:#fff;
   display:flex;
@@ -49,7 +50,8 @@ body {
 }
 
 .sidebar-left { 
-  width:250px; 
+  width:250px;
+  flex-shrink: 0;   /* FIXED: prevents sidebar from shrinking narrower than 250px */
   background:#07293f; 
   color:white; 
   padding:15px; 
@@ -75,12 +77,14 @@ body {
 }
 
 .sidebar-right { 
-  width:300px; 
+  width:300px;
+  flex-shrink: 0;   /* FIXED: prevents sidebar from shrinking narrower than 300px */
   background:#e2e2e2; 
   padding:15px; 
   font-family: montserrat, sans-serif;
   font-weight: 400;
   color: #0b3c5d;
+  overflow-y: auto;
 }
 
 h3{
@@ -153,7 +157,8 @@ ol{
 
 /* FOOTER */
 .footer { 
-  height:40px; 
+  height:40px;
+  flex-shrink: 0;   /* FIXED: locks footer at 40px so .app gets all remaining space */
   background:#0b3c5d; 
   color:#fff; 
   display:flex;
