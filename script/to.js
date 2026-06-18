@@ -121,7 +121,7 @@ window.addEventListener("mouseup", () => {
 // =====================
 const locations = {
   "Main Gate": {
-    name: "main-gate",
+    name: "Main Gate",
     image: "maingate.jpg",
     description: "Main entrance to the school"
   },
