@@ -322,7 +322,7 @@ const locations = {
 
   "Faculty of Art & Design": {
     name: "Faculty of Art & Design (FAD)",
-    image: "field.jpeg",
+    image: "fad.jpeg",
     description: "This is the Faculty of Art & Design, It is Made up of Industrial Art Department and Fashion Design & Textile Department. It is about 15:25s walk from the Main Gate, which is 1.28 km as estimated based on average walking speed of 5 km/h."
   },    
 
@@ -332,14 +332,14 @@ const locations = {
     description: "It is about 13:52s walk from the Main Gate, which is 1.12 km as estimated based on average walking speed of 5 km/h."
   },               
 
-  "HTU Bsic School": {
-    name: "HTU Bsic School",
+  "HTU Basic School": {
+    name: "HTU Basic School",
     image: "htubasic.jpg",
     description: "It is about 13:56s walk from the Main Gate, which is 1.14 km as estimated based on average walking speed of 5 km/h."
   },
 
-  "Faculty of Business": {
-    name: "Faculty of Business",
+  "School of Business": {
+    name: "School of Business",
     image: "busineessch.jpg",
     description: "It is about 18:27s walk from the Main Gate, which is 1.54 km as estimated based on average walking speed of 5 km/h."
   },  
