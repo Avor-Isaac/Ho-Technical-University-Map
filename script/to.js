@@ -126,8 +126,8 @@ const locations = {
     description: "Main entrance to the school"
   },
   
-  "F.O Kwame Block(Main Administration)": {
-    name: "F.O Kwame Block(Main Administration)",
+  "F.O Kwame Block (Main Administration)": {
+    name: "F.O Kwame Block (Main Administration)",
     image: "fo.jpeg",
     description: "This is the main Administration of the University. It is about 1 minute walk from the main Gate."
   },
