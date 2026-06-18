@@ -344,8 +344,8 @@ const locations = {
     description: "It is about 18:27s walk from the Main Gate, which is 1.54 km as estimated based on average walking speed of 5 km/h."
   },  
 
-  "Adaklu Hall(GETFUND HOSTEL)": {
-    name: "Adaklu Hall(GETFUND HOSTEL)",
+  "Adaklu Hall (GETFUND HOSTEL)": {
+    name: "Adaklu Hall (GETFUND HOSTEL)",
     image: "adaklu-hostel.jpg",
     description: "It is about 21:04s walk from the Main Gate, which is 1.76 km as estimated based on average walking speed of 5 km/h."
   },     
