@@ -130,200 +130,200 @@ window.addEventListener("mouseup", () => {
 // =====================
 const locations = {
   "Main Gate": {
-    name: "main-gate",
-    image: "images/main-gate.jpg",
+    name: "Main Gate",
+    image: "maingate.jpg",
     description: "Main entrance to the school"
   },
   
-  "F.O Kwame Block(Main Administration)": {
-    name: "F.O Kwame Block(Main Administration)",
-    image: "images/fo.jpeg",
+  "F.O Kwame Block (Main Administration)": {
+    name: "F.O Kwame Block (Main Administration)",
+    image: "fo.jpeg",
     description: "This is the main Administration of the University. It is about 1 minute walk from the main Gate."
   },
    
   "G.M Afeti Auditorium": {
     name: "G.M Afeti Auditorium",
-    image: "images/auditorium.jpeg",
+    image: "auditorium.jpeg",
     description: "It is located at the east of the main Gate or the main entrance to the School. It ia about 30s walk from the Main Gate"
   },
 
-  "Asogli Block(V Block)": {
-    name: "Asogli Block(V Block)",
-    image: "images/v-block.jpeg",
+  "Asogli Block (V Block)": {
+    name: "Asogli Block (V Block)",
+    image: "vblock.jpeg",
     description: "This is where most of the lecture halls are located, it is made up of about 34 lecture halls and this is also where the main security unit is. It is about 1:30s walk from the main Gate."
   },
 
   "GCB & ZENITH BANKS": {
     name: "GCB & ZENITH BANKS",
-    image: "images/auditorium.jpg",
+    image: "gbc.jpg",
     description: "These are the two banks at Ho Technical University. From the Main Gate to the Banks is about 2 minutes walk. "
   },
 
   "Nunya Library": {
     name: "Nunya Library",
-    image: "images/gg.png",
+    image: "nunya.jpg",
     description: "This is the School's Library, it is located between AR Block and the Banks. It is about 2:30s walk from the Main Gate."
   },
 
   "A.R Block": {
     name: "A.R Block",
-    image: "images/kk.jpg",
+    image: "ar.jpg",
     description: "This Block is about 3minutes walk from the Main Gate, this is about 0.30 km as estimated based on average walking speed of 5 km/h."
   },
 
    "Octagon": {
     name: "Octagon",
-    image: "images/octagon.jpeg",
+    image: "octagon.jpeg",
     description: "This the the Department of Computer Science, it is located about 3:58s which is approximately 0.33 km walk from the Main Gate as estimated based on average walking speed of 5 km/h."
   },
 
   "Auto Bay": {
     name: "Auto Bay",
-    image: "images/fo.jpg",
+    image: "autobay.jpg",
     description: "This is the Automobile Engineering Department, it is about 4:40s which is 0.39 km walk from the Main Gate as estimated based on average walking speed of 5 km/h."
   },
 
   "Amatron Laboratory": {
     name: "Amatron Laboratory",
-    image: "images/fo.jpg",
+    image: "amature-lab.jpg",
     description: "This Lab is about 5:00s walk, thus about 0.45 km from the Main Gate as estimated based on average walking speed of 5 km/h."
   },
 
   "Mechanical Bay": {
     name: "Mechanical Bay",
-    image: "images/fo.jpg",
+    image: "engeneering.jpg",
     description: "It is about 3:58s walk which is approximately 0.33 km from the Main Gate as estimated based on average walking speed of 5 km/h"
   },
 
   "Solar Technology Application Resource Centre": {
     name: "Solar Technology Application Resource Centre",
-    image: "images/fo.jpg",
+    image: "star c.jpg",
     description: "It is about 5:03s walk from the Main Gate, which is 0.45 km as estimated based on average walking speed of 5 km/h."
   },
 
   "Agric Mechanical Shop": {
     name: "Agric Mechanical Shop",
-    image: "images/fablab.jpeg",
+    image: "fablab.jpg",
     description: "It is about 5:00s walk from the Main Gate, which is 0.43 km as estimated based on average walking speed of 5 km/h."
   },
 
-  "Afese Block(Old Administration)": {
-    name: "Afese Block(Old Administration)",
-    image: "images/fo.jpg",
+  "Afese Block (Old Administration)": {
+    name: "Afese Block (Old Administration)",
+    image: "Afese.jpg",
     description: "This block contains the office of the Dean of students, Indusstrial Art Department, Civil Engineering Department, etc. It is about 6:19s walk from the Main Gate, which is 0.54 km as estimated based on average walking speed of 5 km/h."
   },
 
   "Executive Restaurant": {
     name: "Executive Restaurant",
-    image: "images/fo.jpg",
+    image: "Executive rest.jpg",
     description: "It is about 6:55s walk from the Main Gate, which is 0.57 km as estimated based on average walking speed of 5 km/h."
   },
 
   "Building Technology Lab": {
     name: "Building Technology Lab",
-    image: "images/executive.jpeg",
+    image: "achictec.jpg",
     description: "It is about 7:00s walk from the Main Gate, which is 0.60 km as estimated based on average walking speed of 5 km/h."
   },  
   
   "Cafeteria": {
     name: "Cafeteria",
-    image: "images/fo.jpg",
+    image: "cafetaria.jpg",
     description: "It is about 7:03s walk from the Main Gate, which is 0.61 km as estimated based on average walking speed of 5 km/h."
   },  
 
   "Graduate School": {
     name: "Graduate School",
-    image: "images/fo.jpg",
+    image: "graduateschool.jpg",
     description: "It is about 7:30s walk from the Main Gate, which is 0.67 km as estimated based on average walking speed of 5 km/h."
   },
 
   "Esther Nukulenu Demonstration Restaurant": {
     name: "Esther Nukulenu Demonstration Restaurant",
-    image: "images/fo.jpg",
+    image: "nukulenu.jpg",
     description: "It is about 7:37s walk from the Main Gate, which is 0.69 km as estimated based on average walking speed of 5 km/h."
   },    
 
    "HTM Resource Centre": {
     name: "HTM Resource Centre",
-    image: "images/fo.jpg",
+    image: "HTMResourcesCentre.jpg",
     description: "It is about 7:59s walk from the Main Gate, which is 0.71 km as estimated based on average walking speed of 5 km/h."
   },    
 
   "Beauty Saloon": {
     name: "Beauty Saloon",
-    image: "images/fo.jpg",
+    image: "HTMResourcesCentre.jpg",
     description: "It is about 8:03s walk from the Main Gate, which is 0.74 km as estimated based on average walking speed of 5 km/h."
   },
 
   "Fashion Block & HTM Practical Room": {
     name: "Fashion Block & HTM Practical Room",
-    image: "images/fo.jpg",
+    image: "fashion.jpg",
     description: "It is about 9:00s walk from the Main Gate, which is 0.80 km as estimated based on average walking speed of 5 km/h."
   },        
 
   "Welding Workshop": {
     name: "Welding Workshop",
-    image: "images/fo.jpg",
+    image: "weldingsection.jpg",
     description: "It is about 7:04s walk from the Main Gate, which is 0.46 km as estimated based on average walking speed of 5 km/h."
   },        
 
    "Carpentary Workshop": {
     name: "Carpentary Workshop",
-    image: "images/capentary.jpg",
+    image: "capentary.jpeg",
     description: "It is about 7:45s walk from the Main Gate, which is 0.50 km as estimated based on average walking speed of 5 km/h."
   },        
 
    "Electrical Engineering Block": {
     name: "Electrical Engineering Block",
-    image: "images/fo.jpg",
+    image: "capentary.jpeg",
     description: "It is about 9:21s walk from the Main Gate, which is 0.78 km as estimated based on average walking speed of 5 km/h."
   },        
 
-  "Vodzi Hall(Central Male Hall)": {
-    name: "Vodzi Hall(Central Male Hall)",
-    image: "images/vodzi.jpeg",
+  "Vodzi Hall (Central Male Hall)": {
+    name: "Vodzi Hall (Central Male Hall)",
+    image: "vodzi.jpg",
     description: "This is the Male Hostel. It is about 10:15s walk from the Main Gate, which is 0.85 km as estimated based on average walking speed of 5 km/h."
   },        
 
   "Volta Premier FM": {
     name: "Volta Premier FM",
-    image: "images/volta-pre.jpeg",
+    image: "voltapremeire.jpg",
     description: "This is Ho Technical University Radio Broadcast Station. It is about 10:10s walk from the Main Gate, which is 0.85 km as estimated based on average walking speed of 5 km/h."
   },       
 
   "SRC JCR": {
     name: "SRC JCR",
-    image: "images/fo.jpeg",
+    image: "src.jpg",
     description: "It is about 11:04s walk from the Main Gate, which is 0.90 km as estimated based on average walking speed of 5 km/h."
   },    
 
   "Acorlatse Hall(Central Female Hall)": {
     name: "Acorlatse Hall(Central Female Hall)",
-    image: "images/fo.jpg",
+    image: "accolatse.jpg",
     description: "This is the Female hostel. It is about 11:49s walk from the Main Gate, which is 0.95 km as estimated based on average walking speed of 5 km/h."
   },    
 
   "Demonstration Farm": {
     name: "Demonstration Farm",
-    image: "images/farm.jpeg",
+    image: "demonstrationfarm.jpg",
     description: "It is about 18:05s walk from the Main Gate, which is 1.51 km as estimated based on average walking speed of 5 km/h."
   },        
 
   "Staff Bangalows": {
     name: "Staff Bangalows",
-    image: "images/fo.jpg",
+    image: ".jpg",
     description: "These are the Staff Bangalows, their color is yellow on the map and their label or Legend is 31."
   },     
 
   "SRC Restaurant": {
     name: "SRC Restaurant",
-    image: "images/fo.jpg",
+    image: "srcrestaurant.jpg",
     description: "It is about 11:04s walk from the Main Gate, which is 0.92 km as estimated based on average walking speed of 5 km/h."
   },           
 
   "Sports Field": {
     name: "Sports Field",
-    image: "images/field.jpeg",
+    image: "field.jpeg",
     description: "It is about 11:47s walk from the Main Gate, which is 0.96 km as estimated based on average walking speed of 5 km/h."
   },           
 
@@ -331,43 +331,43 @@ const locations = {
 
   "Faculty of Art & Design": {
     name: "Faculty of Art & Design (FAD)",
-    image: "images/fo.jpg",
+    image: "fad.jpg",
     description: "This is the Faculty of Art & Design, It is Made up of Industrial Art Department and Fashion Design & Textile Department. It is about 15:25s walk from the Main Gate, which is 1.28 km as estimated based on average walking speed of 5 km/h."
   },    
 
    "V.C's Residence": {
     name: "V.C's Residence",
-    image: "images/fo.jpg",
+    image: "vc.jpg",
     description: "It is about 13:52s walk from the Main Gate, which is 1.12 km as estimated based on average walking speed of 5 km/h."
   },               
 
-  "HTU Bsic School": {
-    name: "HTU Bsic School",
-    image: "images/fo.jpg",
+  "HTU Basic School": {
+    name: "HTU Basic School",
+    image: "htubasic.jpg",
     description: "It is about 13:56s walk from the Main Gate, which is 1.14 km as estimated based on average walking speed of 5 km/h."
   },
 
-  "Faculty of Business": {
-    name: "Faculty of Business",
-    image: "images/fo.jpg",
+  "School of Business": {
+    name: "School of Business",
+    image: "busineessch.jpg",
     description: "It is about 18:27s walk from the Main Gate, which is 1.54 km as estimated based on average walking speed of 5 km/h."
   },  
 
-  "Adaklu Hall(GETFUND HOSTEL)": {
-    name: "Adaklu Hall(GETFUND HOSTEL)",
-    image: "images/fo.jpg",
+  "Adaklu Hall (GETFUND HOSTEL)": {
+    name: "Adaklu Hall (GETFUND HOSTEL)",
+    image: "adaklu-hostel.jpg",
     description: "It is about 21:04s walk from the Main Gate, which is 1.76 km as estimated based on average walking speed of 5 km/h."
   },     
 
   "Basket / Volleyball Court": {
     name: "Basket / Volleyball Court",
-    image: "images/bball.jpg",
+    image: "bball.jpg",
     description: "It is about 23:03s walk from the Main Gate, which is 1.80 km as estimated based on average walking speed of 5 km/h."
   },       
 
   "HTU Clinic": {
     name: "HTU Clinic ",
-    image: "images/clinic.jpeg",
+    image: "clinic.jpeg",
     description: "This is HTU health facility. It is about 10:09s walk from the Main Gate, which is 0.45 km as estimated based on average walking speed of 5 km/h."
   },                                                      
 };
