@@ -270,8 +270,8 @@ const locations = {
     description: "It is about 9:21s walk from the Main Gate, which is 0.78 km as estimated based on average walking speed of 5 km/h."
   },        
 
-  "Vodzi Hall(Central Male Hall)": {
-    name: "Vodzi Hall(Central Male Hall)",
+  "Vodzi Hall (Central Male Hall)": {
+    name: "Vodzi Hall (Central Male Hall)",
     image: "vodzi.jpg",
     description: "This is the Male Hostel. It is about 10:15s walk from the Main Gate, which is 0.85 km as estimated based on average walking speed of 5 km/h."
   },        
@@ -288,8 +288,8 @@ const locations = {
     description: "It is about 11:04s walk from the Main Gate, which is 0.90 km as estimated based on average walking speed of 5 km/h."
   },    
 
-  "Acorlatse Hall(Central Female Hall)": {
-    name: "Acorlatse Hall(Central Female Hall)",
+  "Acorlatse Hall (Central Female Hall)": {
+    name: "Acorlatse Hall (Central Female Hall)",
     image: "accolatse.jpg",
     description: "This is the Female hostel. It is about 11:49s walk from the Main Gate, which is 0.95 km as estimated based on average walking speed of 5 km/h."
   },    
