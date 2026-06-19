@@ -119,7 +119,7 @@ ol{
   display: flex;
   justify-content: center;
   align-items: center;
-  touch-action: none; /* FIXED: stops browser pinch/scroll from fighting our custom pan & zoom */
+  touch-action:  /* FIXED: stops browser pinch/scroll from fighting our custom pan & zoom */
 }
 
 .zoom-controls { 
