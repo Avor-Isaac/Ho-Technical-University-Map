@@ -475,28 +475,82 @@ function load360(imagePath) {
 
 
 
-// TOUCH PAN SUPPORT
-wrapper.addEventListener("touchstart", e => {
-  if (!isPanning) return;
+// =====================
+// TOUCH SUPPORT (PAN + PINCH ZOOM)
+// =====================
+let lastTouchDist = null;
+let lastMidX = null;
+let lastMidY = null;
 
-  const touch = e.touches[0];
-  isDragging = true;
-  startX = touch.clientX - x;
-  startY = touch.clientY - y;
-});
+wrapper.addEventListener("touchstart", e => {
+  // disable CSS transition during gesture so movement feels instant
+  wrapper.style.transition = "none";
+
+  if (e.touches.length === 1) {
+    // single finger = pan, works without pressing Pan button on mobile
+    isDragging = true;
+    lastTouchDist = null;
+    startX = e.touches[0].clientX - x;
+    startY = e.touches[0].clientY - y;
+
+  } else if (e.touches.length === 2) {
+    // two fingers = pinch zoom, cancel any pan in progress
+    isDragging = false;
+    lastTouchDist = null;
+  }
+}, { passive: false });
 
 wrapper.addEventListener("touchmove", e => {
-  if (!isDragging || !isPanning) return;
+  e.preventDefault(); // stops browser scroll/zoom fighting our gesture
 
-  const touch = e.touches[0];
-  x = touch.clientX - startX;
-  y = touch.clientY - startY;
+  if (e.touches.length === 1 && isDragging) {
+    x = e.touches[0].clientX - startX;
+    y = e.touches[0].clientY - startY;
+    updateTransform();
 
-  updateTransform();
-});
+  } else if (e.touches.length === 2) {
+    const t0 = e.touches[0];
+    const t1 = e.touches[1];
 
-wrapper.addEventListener("touchend", () => {
-  isDragging = false;
+    const dx = t1.clientX - t0.clientX;
+    const dy = t1.clientY - t0.clientY;
+    const dist = Math.hypot(dx, dy);
+
+    const midX = (t0.clientX + t1.clientX) / 2;
+    const midY = (t0.clientY + t1.clientY) / 2;
+
+    if (lastTouchDist !== null) {
+      // zoom toward the midpoint between the two fingers
+      zoom(dist / lastTouchDist, midX, midY);
+
+      // also pan to follow the midpoint as fingers move
+      x += midX - lastMidX;
+      y += midY - lastMidY;
+      updateTransform();
+    }
+
+    lastTouchDist = dist;
+    lastMidX = midX;
+    lastMidY = midY;
+  }
+}, { passive: false });
+
+wrapper.addEventListener("touchend", e => {
+  // restore smooth transition for button zooms
+  wrapper.style.transition = "transform 0.3s ease";
+
+  if (e.touches.length === 0) {
+    // all fingers lifted
+    isDragging = false;
+    lastTouchDist = null;
+
+  } else if (e.touches.length === 1) {
+    // went from 2 fingers to 1 — restart pan cleanly to avoid position jump
+    isDragging = true;
+    lastTouchDist = null;
+    startX = e.touches[0].clientX - x;
+    startY = e.touches[0].clientY - y;
+  }
 });
 
 
