@@ -297,8 +297,8 @@ const locations = {
     description: "It is about 11:04s walk from the Main Gate, which is 0.90 km as estimated based on average walking speed of 5 km/h."
   },    
 
-  "Acorlatse Hall(Central Female Hall)": {
-    name: "Acorlatse Hall(Central Female Hall)",
+  "Acorlatse Hall (Central Female Hall)": {
+    name: "Acorlatse Hall (Central Female Hall)",
     image: "accolatse.jpg",
     description: "This is the Female hostel. It is about 11:49s walk from the Main Gate, which is 0.95 km as estimated based on average walking speed of 5 km/h."
   },    
