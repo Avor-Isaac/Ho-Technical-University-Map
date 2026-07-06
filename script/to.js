@@ -297,8 +297,8 @@ const locations = {
     description: "It is about 11:04s walk from the Main Gate, which is 0.90 km as estimated based on average walking speed of 5 km/h."
   },    
 
-  "Acorlatse Hall (Central Female Hall)": {
-    name: "Acorlatse Hall (Central Female Hall)",
+  "Acorlatse Hall(Central Female Hall)": {
+    name: "Acorlatse Hall(Central Female Hall)",
     image: "accolatse.jpg",
     description: "This is the Female hostel. It is about 11:49s walk from the Main Gate, which is 0.95 km as estimated based on average walking speed of 5 km/h."
   },    
@@ -393,16 +393,7 @@ Object.keys(locations).forEach(id => {
 
   // CLICK
  el.addEventListener("click", () => {
-  setActive(el, id);
-
-  // Load 360 image
-  load360(locations[id].image);
-
-  // Update description
-  locationDescription.innerHTML = `<p>${locations[id].description}</p>`;
-
-  // Update title
-  document.getElementById("locationTitle").innerText = locations[id].name;
+  triggerLocation(id);
 });
 
 
@@ -476,6 +467,180 @@ function load360(imagePath) {
 
 
 // =====================
+// LEGEND → LOCATION KEY MAP
+// Maps each legend <li> text to the exact key used in the locations object
+// and the SVG element ID
+// =====================
+const legendMap = [
+  "Main Gate",
+  "F.O Kwame Block (Main Administration)",
+  "G.M Afeti Auditorium",
+  "Asogli Block (V Block)",
+  "GCB & ZENITH BANKS",
+  "Nunya Library",
+  "A.R Block",
+  "Octagon",
+  "Auto Bay",
+  "Amatron Laboratory",
+  "Mechanical Bay",
+  "Solar Technology Application Resource Centre",
+  "Agric Mechanical Shop",
+  "Afese Block (Old Administration)",
+  "Executive Restaurant",
+  "Building Technology Lab",
+  "Esther Nukulenu Demonstration Restaurant",
+  "Graduate School",
+  "Cafeteria",
+  "HTM Resource Centre",
+  "Beauty Saloon",
+  "Fashion Block & HTM Practical Room",
+  "Welding Workshop",
+  "Carpentary Workshop",
+  "Electrical Engineering Block",
+  "Vodzi Hall (Central Male Hall)",
+  "Volta Premier FM",
+  "SRC JCR",
+  "Acorlatse Hall(Central Female Hall)",
+  "Demonstration Farm",
+  "Staff Bangalows",
+  "SRC Restaurant",
+  "Sports Field",
+  "Faculty of Art & Design",
+  "V.C's Residence",
+  "HTU Basic School",
+  "School of Business",
+  "Adaklu Hall (GETFUND HOSTEL)",
+  "Basket / Volleyball Court",
+  "HTU Clinic"
+];
+
+
+// =====================
+// HELPER: TRIGGER A LOCATION (used by legend clicks, search enter)
+// Loads 360, updates info panel, highlights SVG, zooms map,
+// and on mobile scrolls to the map + panorama
+// =====================
+function triggerLocation(locationKey) {
+  const loc = locations[locationKey];
+  if (!loc) return;
+
+  // Find the SVG element
+  const el = document.getElementById(locationKey);
+
+  // Highlight on map
+  if (el) {
+    setActive(el, locationKey);
+
+    // Get the bounding box of the SVG element to zoom to it
+    const svgEl = document.getElementById("Layer_1");
+    const bbox = el.getBBox(); // SVG coordinates of this location
+
+    // Get the map container dimensions
+    const container = wrapper.parentElement.getBoundingClientRect();
+    const containerW = container.width;
+    const containerH = container.height;
+
+    // Target scale — zoom in close enough to see the location
+    const targetScale = 3;
+
+    // Center of the location in SVG coordinates
+    const locCenterX = bbox.x + bbox.width / 2;
+    const locCenterY = bbox.y + bbox.height / 2;
+
+    // Calculate translation to put that center in the middle of the container
+    x = containerW / 2 - locCenterX * targetScale;
+    y = containerH / 2 - locCenterY * targetScale;
+    scale = targetScale;
+
+    wrapper.style.transition = "transform 0.6s ease";
+    updateTransform();
+  }
+
+  // Load 360 panorama
+  load360(loc.image);
+
+  // Update info panel
+  document.getElementById("locationTitle").innerText = loc.name;
+  locationDescription.innerHTML = `<p>${loc.description}</p>`;
+
+  // On mobile: scroll to the map area then to the panorama
+  if (window.innerWidth <= 768) {
+    const mapEl = document.querySelector(".main");
+    const panoramaEl = document.getElementById("panorama");
+    if (mapEl) {
+      setTimeout(() => {
+        mapEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+      setTimeout(() => {
+        panoramaEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 800);
+    }
+  }
+}
+
+
+// =====================
+// LEGEND CLICK HANDLERS
+// Make every <li> in the legend clickable
+// =====================
+const legendItems = document.querySelectorAll("#legendList li");
+legendItems.forEach((li, index) => {
+  const locationKey = legendMap[index];
+  if (!locationKey) return;
+
+  // Style the legend item to look clickable
+  li.style.cursor = "pointer";
+  li.style.padding = "4px 2px";
+  li.style.borderRadius = "4px";
+  li.style.transition = "background 0.2s";
+
+  li.addEventListener("mouseenter", () => {
+    li.style.background = "rgba(255,255,255,0.15)";
+  });
+  li.addEventListener("mouseleave", () => {
+    li.style.background = "transparent";
+  });
+
+  li.addEventListener("click", () => {
+    // Highlight active legend item
+    legendItems.forEach(item => item.style.fontWeight = "300");
+    li.style.fontWeight = "700";
+
+    triggerLocation(locationKey);
+  });
+});
+
+
+// =====================
+// SEARCH: ENTER KEY → AUTO ZOOM + DISMISS KEYBOARD
+// =====================
+searchBox.addEventListener("keydown", e => {
+  if (e.key !== "Enter") return;
+
+  // Dismiss mobile keyboard
+  searchBox.blur();
+
+  const val = searchBox.value.toLowerCase().trim();
+  if (!val) return;
+
+  // Find the first location that matches the search
+  const matchedKey = Object.keys(locations).find(key =>
+    locations[key].name.toLowerCase().includes(val)
+  );
+
+  if (matchedKey) {
+    triggerLocation(matchedKey);
+
+    // Reset opacity of all locations
+    Object.keys(locations).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.opacity = "1";
+    });
+  }
+});
+
+
+// =====================
 // TOUCH SUPPORT (PAN + PINCH ZOOM)
 // =====================
 let lastTouchDist = null;
@@ -483,25 +648,22 @@ let lastMidX = null;
 let lastMidY = null;
 
 wrapper.addEventListener("touchstart", e => {
-  // disable CSS transition during gesture so movement feels instant
   wrapper.style.transition = "none";
 
   if (e.touches.length === 1) {
-    // single finger = pan, works without pressing Pan button on mobile
     isDragging = true;
     lastTouchDist = null;
     startX = e.touches[0].clientX - x;
     startY = e.touches[0].clientY - y;
 
   } else if (e.touches.length === 2) {
-    // two fingers = pinch zoom, cancel any pan in progress
     isDragging = false;
     lastTouchDist = null;
   }
 }, { passive: false });
 
 wrapper.addEventListener("touchmove", e => {
-  e.preventDefault(); // stops browser scroll/zoom fighting our gesture
+  e.preventDefault();
 
   if (e.touches.length === 1 && isDragging) {
     x = e.touches[0].clientX - startX;
@@ -520,10 +682,7 @@ wrapper.addEventListener("touchmove", e => {
     const midY = (t0.clientY + t1.clientY) / 2;
 
     if (lastTouchDist !== null) {
-      // zoom toward the midpoint between the two fingers
       zoom(dist / lastTouchDist, midX, midY);
-
-      // also pan to follow the midpoint as fingers move
       x += midX - lastMidX;
       y += midY - lastMidY;
       updateTransform();
@@ -536,23 +695,19 @@ wrapper.addEventListener("touchmove", e => {
 }, { passive: false });
 
 wrapper.addEventListener("touchend", e => {
-  // restore smooth transition for button zooms
   wrapper.style.transition = "transform 0.3s ease";
 
   if (e.touches.length === 0) {
-    // all fingers lifted
     isDragging = false;
     lastTouchDist = null;
 
   } else if (e.touches.length === 1) {
-    // went from 2 fingers to 1 — restart pan cleanly to avoid position jump
     isDragging = true;
     lastTouchDist = null;
     startX = e.touches[0].clientX - x;
     startY = e.touches[0].clientY - y;
   }
 });
-
 
 
 // Example toggle
