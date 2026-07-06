@@ -524,37 +524,10 @@ function triggerLocation(locationKey) {
   const loc = locations[locationKey];
   if (!loc) return;
 
-  // Find the SVG element
   const el = document.getElementById(locationKey);
 
   // Highlight on map
-  if (el) {
-    setActive(el, locationKey);
-
-    // Get the bounding box of the SVG element to zoom to it
-    const svgEl = document.getElementById("Layer_1");
-    const bbox = el.getBBox(); // SVG coordinates of this location
-
-    // Get the map container dimensions
-    const container = wrapper.parentElement.getBoundingClientRect();
-    const containerW = container.width;
-    const containerH = container.height;
-
-    // Target scale — zoom in close enough to see the location
-    const targetScale = 3;
-
-    // Center of the location in SVG coordinates
-    const locCenterX = bbox.x + bbox.width / 2;
-    const locCenterY = bbox.y + bbox.height / 2;
-
-    // Calculate translation to put that center in the middle of the container
-    x = containerW / 2 - locCenterX * targetScale;
-    y = containerH / 2 - locCenterY * targetScale;
-    scale = targetScale;
-
-    wrapper.style.transition = "transform 0.6s ease";
-    updateTransform();
-  }
+  if (el) setActive(el, locationKey);
 
   // Load 360 panorama
   load360(loc.image);
